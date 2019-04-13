@@ -3,7 +3,7 @@
         <!-- Editor Mode -->
         <div class="medium-editor-container" v-if="!readOnly">
             <insert-embed v-if="editor" 
-                :uploadUrl="options.uploadUrl"
+                :uploadFunction="options.uploadFunction"
                 :onChange="triggerChange"
                 :editorRef="$refs.editor"
                 :editor="editor"

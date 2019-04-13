@@ -4,7 +4,7 @@
         class="btn-toggle"
         extensions="gif,jpg,jpeg,png,webp"
         accept="image/png,image/gif,image/jpeg,image/webp"
-        :post-action="uploadUrl"
+        :custom-action="uploadFunction"
         :multiple="true"
         :size="1024 * 1024 * 10"
         v-model="insert.files"
@@ -27,7 +27,7 @@ export default {
     props: [
         'editor',
         'insert',
-        'uploadUrl',
+        'uploadFunction',
         'editorRef',
         'handler'
     ],

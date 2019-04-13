@@ -18,7 +18,7 @@ ps. a demo work for all features except upload photo because i doesn't deploy a 
 ### Installation
 
 ```
-yarn add https://github.com/tui2tone/vue2-medium-editor
+yarn add https://github.com/ryoNagata001/vue2-medium-editor
 ```
 
 ### Usage
