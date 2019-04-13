@@ -1,5 +1,7 @@
 # Vue2 Medium Editor
 
+色々変えてしまったのであとでREADMEを足します。ryoNagata001
+
 Vue2 component for Medium Editor wrapper with https://github.com/yabwe/medium-editor
 But all plugins are re-writing in Vue.js
 
