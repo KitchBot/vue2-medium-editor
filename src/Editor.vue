@@ -103,7 +103,6 @@ export default {
       }
     },
     uploadedCallback(url) {
-      console.log("callback")
       this.$emit("uploaded", url);
     }
   },
