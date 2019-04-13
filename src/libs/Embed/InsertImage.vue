@@ -130,7 +130,6 @@ export default {
             
             // Image Upload Successful
             if(newFile && newFile.success) {
-                console.log(newFile)
                 this.addImage(newFile.response.url)
             }
         }
