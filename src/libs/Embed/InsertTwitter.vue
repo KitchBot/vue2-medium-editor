@@ -10,7 +10,7 @@
                 <v-text-field
                 color="white"
                 light
-                label="Tweet embed code. (Not URL)"
+                label="Tweet url or embed code."
                 v-model="url"
                 ></v-text-field>
                 <v-btn icon style="margin-top: 15px;" color="green" @click="getIframe">
@@ -63,10 +63,10 @@ export default {
         },
         getIframe() {
             if (validUrl.isUri(this.url)) {
-                alert('You shold input embed code, not URL.\nURLではなく埋め込み用のコードを入力してください。');
-                return
+                this.addIframe(this.getIframeCode(this.url))
+            } else {
+                this.addIframe(this.url);
             }
-            this.addIframe(this.url);
         },
         addIframe(html) {
             // const handlerVm = this
@@ -98,6 +98,9 @@ export default {
                     this.insert.isShow = false
                 })
             })
+        },
+        getIframeCode(url) {
+            return `<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw">2019年4月15日</a></blockquote>`
         }
     }
 }
