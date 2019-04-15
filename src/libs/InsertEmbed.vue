@@ -2,9 +2,16 @@
     <div class="image-handler-container">
         <div class="insert-image-container" v-show="insert.isShow" v-bind:style="insert.position">
             <div class="insert-image-toggle">
-                <button v-on:click="toggle" class="btn-toggle">
-                    <font-awesome-icon icon="plus" />
-                </button>
+                <span v-show="!this.insert.isToggle">
+                    <button v-on:click="toggle" class="btn-toggle">
+                        <font-awesome-icon icon="plus" />
+                    </button>
+                </span>
+                <span v-show="this.insert.isToggle">
+                    <button v-on:click="toggle" class="btn-toggle">
+                        <font-awesome-icon icon="times" />
+                    </button>
+                </span>
             </div>
             <div class="insert-image-menu" v-show="insert.isToggle">
                 <insert-image
@@ -30,10 +37,10 @@ import InsertImage from './Embed/InsertImage';
 import ImagePosition from './Embed/ImagePosition';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import _ from 'underscore';
 
-library.add(faPlus)
+library.add([faPlus, faTimes])
 
 export default {
     components: {

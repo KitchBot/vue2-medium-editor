@@ -2,7 +2,7 @@
     <div id="app">
         <medium-editor 
             v-model="content"
-            :readOnly="true"
+            :readOnly="false"
             :prefill="defaultValue"
             :options="options"
             :onChange="onChange"
