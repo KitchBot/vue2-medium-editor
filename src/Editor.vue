@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <div>
         <!-- Editor Mode -->
         <div class="medium-editor-container" v-if="!readOnly">
             <insert-embed v-if="editor" 
@@ -20,7 +20,7 @@
         </div>
         <!-- Read Only Mode -->
         <read-mode v-if="readOnly" :content="prefill"></read-mode>
-    </v-app>
+    </div>
 </template>
 
 <script>
