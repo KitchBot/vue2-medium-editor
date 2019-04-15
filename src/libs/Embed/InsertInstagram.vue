@@ -43,6 +43,7 @@ export default {
         'editor',
         'editorRef',
         'insert',
+        'hidecaption',
     ],
     components: {
         FontAwesomeIcon,
@@ -61,7 +62,13 @@ export default {
             this.url = '';
         },
         getIframe() {
-            instagramUtil(this.url).then((data) => {
+            let hidecaption
+            if (this.hidecaption) {
+                hidecaption = true
+            } else {
+                hidecaption = false
+            }
+            instagramUtil(this.url, hidecaption).then((data) => {
                 this.instagramHtml = data;
                 this.addIframe(data)
             })

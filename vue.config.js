@@ -1,3 +1,3 @@
 module.exports = {
-    baseUrl: '/vue2-medium-editor/'
+    publicPath: '/vue2-medium-editor/'
 }

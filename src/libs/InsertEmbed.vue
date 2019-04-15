@@ -27,6 +27,7 @@
                     :editor="editor"
                     :insert="insert"
                     :editorRef="editorRef"
+                    :hidecaption="hidecaption"
                     v-on:onChange="onChange"
                 ></insert-instagram>
             </div>
@@ -84,7 +85,8 @@ export default {
         'editor',
         'uploadFunction',
         'editorRef',
-        'onChange'
+        'onChange',
+        'hidecaption',
     ],
     methods: {
         subscribe() {
