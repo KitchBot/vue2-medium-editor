@@ -61,9 +61,8 @@ export default {
             this.editorRef.focus()
             this.editor.selectElement(this.insert.focusLine)
             this.editor.pasteHTML(
-                '<div class="instagram--content" style="text-align: center;" contenteditable="false"><div style="display: inline-block; text-align: left; width: 900px;">' + html + '</div></div>',
+                '<div class="instagram--conteiner" contenteditable="false"><div class="instagram--content">' + html + '</div></div>',
                 { cleanAttrs: [], cleanTags: [], unwrapTags: []})
-            console.log(this.editor)
 
             const embedElm = this.editor.getSelectedParentElement()
 
