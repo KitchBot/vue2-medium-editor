@@ -37,6 +37,13 @@
                     :hidecaption="hidecaption"
                     v-on:onChange="onChange"
                 ></insert-twitter>
+                <insert-youtube
+                    :editor="editor"
+                    :insert="insert"
+                    :editorRef="editorRef"
+                    :hidecaption="hidecaption"
+                    v-on:onChange="onChange"
+                ></insert-youtube>
                 <insert-google-map
                     :editor="editor"
                     :insert="insert"
@@ -57,6 +64,7 @@
 import InsertImage from './Embed/InsertImage';
 import InsertInstagram from './Embed/InsertInstagram';
 import InsertTwitter from './Embed/InsertTwitter';
+import InsertYoutube from './Embed/InsertYoutube';
 import InsertGoogleMap from './Embed/InsertGoogleMap';
 import ImagePosition from './Embed/ImagePosition';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -73,6 +81,7 @@ export default {
         ImagePosition,
         InsertInstagram,
         InsertTwitter,
+        InsertYoutube,
         InsertGoogleMap,
     },
     data() {
