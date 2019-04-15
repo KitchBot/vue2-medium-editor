@@ -16,6 +16,11 @@
                     v-on:uploaded="uploadCallback"
                     v-on:imageClick="imageClickHandler"
                 ></insert-image>
+                <insert-instagram
+                    :editor="editor"
+                    :insert="insert"
+                    :editorRef="editorRef"
+                ></insert-instagram>
             </div>
         </div>
         <image-position
@@ -27,6 +32,7 @@
 
 <script>
 import InsertImage from './Embed/InsertImage';
+import InsertInstagram from './Embed/InsertInstagram';
 import ImagePosition from './Embed/ImagePosition';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -39,7 +45,8 @@ export default {
     components: {
         FontAwesomeIcon,
         InsertImage,
-        ImagePosition
+        ImagePosition,
+        InsertInstagram,
     },
     data() {
         return {
