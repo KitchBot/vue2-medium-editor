@@ -25,7 +25,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInstagram } from '@fortawesome/fontawesome-free-brands';
-import instagramUtil from '@/util/instagramUtil.js';
+import instagramUtil from '../../util/instagramUtil.js';
 import { setTimeout } from 'timers';
 
 library.add(faInstagram);
