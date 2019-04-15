@@ -37,6 +37,13 @@
                     :hidecaption="hidecaption"
                     v-on:onChange="onChange"
                 ></insert-twitter>
+                <insert-google-map
+                    :editor="editor"
+                    :insert="insert"
+                    :editorRef="editorRef"
+                    :hidecaption="hidecaption"
+                    v-on:onChange="onChange"
+                ></insert-google-map>
             </div>
         </div>
         <image-position
@@ -50,6 +57,7 @@
 import InsertImage from './Embed/InsertImage';
 import InsertInstagram from './Embed/InsertInstagram';
 import InsertTwitter from './Embed/InsertTwitter';
+import InsertGoogleMap from './Embed/InsertGoogleMap';
 import ImagePosition from './Embed/ImagePosition';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -65,6 +73,7 @@ export default {
         ImagePosition,
         InsertInstagram,
         InsertTwitter,
+        InsertGoogleMap,
     },
     data() {
         return {
