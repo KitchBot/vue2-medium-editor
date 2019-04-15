@@ -30,6 +30,13 @@
                     :hidecaption="hidecaption"
                     v-on:onChange="onChange"
                 ></insert-instagram>
+                <insert-twitter
+                    :editor="editor"
+                    :insert="insert"
+                    :editorRef="editorRef"
+                    :hidecaption="hidecaption"
+                    v-on:onChange="onChange"
+                ></insert-twitter>
             </div>
         </div>
         <image-position
@@ -42,6 +49,7 @@
 <script>
 import InsertImage from './Embed/InsertImage';
 import InsertInstagram from './Embed/InsertInstagram';
+import InsertTwitter from './Embed/InsertTwitter';
 import ImagePosition from './Embed/ImagePosition';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -56,6 +64,7 @@ export default {
         InsertImage,
         ImagePosition,
         InsertInstagram,
+        InsertTwitter,
     },
     data() {
         return {
