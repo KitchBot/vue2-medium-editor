@@ -26,6 +26,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTwitter } from '@fortawesome/fontawesome-free-brands';
 import { setTimeout } from 'timers';
+import validUrl from 'valid-url';
 
 library.add(faTwitter);
 
@@ -61,11 +62,11 @@ export default {
             this.url = '';
         },
         getIframe() {
+            if (validUrl.isUri(this.url)) {
+                alert('You shold input embed code, not URL.\nURLではなく埋め込み用のコードを入力してください。');
+                return
+            }
             this.addIframe(this.url);
-            // twitterUtil(this.url, hidecaption).then((data) => {
-            //     this.instagramHtml = data;
-            //     this.addIframe(this.)
-            // })
         },
         addIframe(html) {
             // const handlerVm = this
@@ -97,7 +98,7 @@ export default {
                     this.insert.isShow = false
                 })
             })
-        },
+        }
     }
 }
 </script>

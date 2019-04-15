@@ -10,7 +10,7 @@
                 <v-text-field
                 color="white"
                 light
-                label="Instagram url"
+                label="Instagram url or Embed Code"
                 v-model="url"
                 ></v-text-field>
                 <v-btn icon style="margin-top: 15px;" color="green" @click="getIframe">
@@ -27,6 +27,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInstagram } from '@fortawesome/fontawesome-free-brands';
 import instagramUtil from '../../util/instagramUtil.js';
 import { setTimeout } from 'timers';
+import validUrl from 'valid-url';
 
 library.add(faInstagram);
 
@@ -68,10 +69,14 @@ export default {
             } else {
                 hidecaption = false
             }
-            instagramUtil(this.url, hidecaption).then((data) => {
-                this.instagramHtml = data;
-                this.addIframe(data)
-            })
+            if (validUrl.isUri(this.url)) {
+                instagramUtil(this.url, hidecaption).then((data) => {
+                    this.instagramHtml = data;
+                    this.addIframe(data)
+                })
+            } else {
+                this.addIframe(this.url)
+            }
         },
         addIframe(html) {
             // const handlerVm = this

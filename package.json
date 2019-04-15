@@ -26,6 +26,7 @@
     "pure-gist-embed": "^1.0.3",
     "randomstring": "^1.1.5",
     "underscore": "^1.9.1",
+    "valid-url": "^1.0.9",
     "vue": "^2.5.16",
     "vue-upload-component": "^2.8.9",
     "vuetify": "^1.5.5"
