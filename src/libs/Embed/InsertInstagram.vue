@@ -71,7 +71,7 @@ export default {
             this.editorRef.focus()
             this.editor.selectElement(this.insert.focusLine)
             this.editor.pasteHTML(
-                '<div class="instagram--container"><div class="instagram--content">' + html + '</div></div>',
+                '<div class="instagram--container"><div class="instagram--content">' + html + '</div></div><br>',
                 { cleanAttrs: [], cleanTags: [], unwrapTags: []})
 
             this.embedElm = this.editor.getSelectedParentElement()
@@ -84,6 +84,10 @@ export default {
             } else {
                 window.instgrm.Embeds.process()
             }
+            const focused = this.editor.getSelectedParentElement()
+            const currentPos = focused.getBoundingClientRect()
+            window.scrollTo(0, currentPos.top - currentPos.x);
+            this.$emit('onChange')
             
             sleep(1000).then(() => {
                 this.editor.pasteHTML('<span></span>', { cleanAttrs: [], cleanTags: [], unwrapTags: []})
@@ -92,14 +96,6 @@ export default {
                     this.insert.isShow = false
                 })
             })
-        },
-        detectEmbed(e) {
-            if (e.keyCode === 13 && this.embedElm) {
-                const url = this.embedElm.innerHTML.replace("<br>", "")
-                this.renderEmbed(url, this.embedElm)
-                this.embedElm = null
-                this.insert.isShow = false
-            }
         },
     }
 }
