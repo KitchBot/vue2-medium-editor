@@ -60,14 +60,17 @@ export default {
             // const handlerVm = this
             this.editorRef.focus()
             this.editor.selectElement(this.insert.focusLine)
-            html.replace('max-width: 900px;', 'max-width: 658px;')
             this.editor.pasteHTML(
                 '<div class="instagram--content" style="text-align: center;" contenteditable="false"><div style="display: inline-block; text-align: left; width: 900px;">' + html + '</div></div>',
                 { cleanAttrs: [], cleanTags: [], unwrapTags: []})
+            console.log(this.editor)
+
+            const embedElm = this.editor.getSelectedParentElement()
+
             const script = document.createElement("script");
             script.src = "https://platform.instagram.com/en_US/embeds.js";
             script.async = true;
-            document.body.appendChild(script);
+            embedElm.appendChild(script);
         }
     }
 }
