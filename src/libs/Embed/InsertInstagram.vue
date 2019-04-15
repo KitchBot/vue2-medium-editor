@@ -26,8 +26,17 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInstagram } from '@fortawesome/fontawesome-free-brands';
 import instagramUtil from '@/util/instagramUtil.js';
+import { setTimeout } from 'timers';
 
 library.add(faInstagram);
+
+function sleep(time) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve();
+        }, time);
+    });
+}
 
 export default {
     props: [
@@ -43,6 +52,7 @@ export default {
             isShow: false,
             url: '',
             instagramHtml: '',
+            embedElm: null,
         }
     },
     methods: {
@@ -61,16 +71,36 @@ export default {
             this.editorRef.focus()
             this.editor.selectElement(this.insert.focusLine)
             this.editor.pasteHTML(
-                '<div class="instagram--conteiner" contenteditable="false"><div class="instagram--content">' + html + '</div></div>',
+                '<div class="instagram--container"><div class="instagram--content">' + html + '</div></div>',
                 { cleanAttrs: [], cleanTags: [], unwrapTags: []})
 
-            const embedElm = this.editor.getSelectedParentElement()
+            this.embedElm = this.editor.getSelectedParentElement()
 
-            const script = document.createElement("script");
-            script.src = "https://platform.instagram.com/en_US/embeds.js";
-            script.async = true;
-            embedElm.appendChild(script);
-        }
+            if (window.instgrm === undefined) {
+                const script = document.createElement("script");
+                script.src = "https://platform.instagram.com/en_US/embeds.js";
+                script.async = true;
+                this.embedElm.appendChild(script);
+            } else {
+                window.instgrm.Embeds.process()
+            }
+            
+            sleep(1000).then(() => {
+                this.editor.pasteHTML('<span></span>', { cleanAttrs: [], cleanTags: [], unwrapTags: []})
+                sleep(1000).then(() => {
+                    this.insert.isToggle = false
+                    this.insert.isShow = false
+                })
+            })
+        },
+        detectEmbed(e) {
+            if (e.keyCode === 13 && this.embedElm) {
+                const url = this.embedElm.innerHTML.replace("<br>", "")
+                this.renderEmbed(url, this.embedElm)
+                this.embedElm = null
+                this.insert.isShow = false
+            }
+        },
     }
 }
 </script>

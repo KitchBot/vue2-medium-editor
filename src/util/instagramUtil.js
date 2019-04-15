@@ -9,7 +9,7 @@ export default async function (url) {
         params: {
             url: url,
             omitscript: true,
-            hidecaption: false,
+            hidecaption: true,
             maxwidth: '900'
         }
     })

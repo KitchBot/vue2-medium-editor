@@ -27,6 +27,7 @@
                     :editor="editor"
                     :insert="insert"
                     :editorRef="editorRef"
+                    v-on:onChange="onChange"
                 ></insert-instagram>
             </div>
         </div>
