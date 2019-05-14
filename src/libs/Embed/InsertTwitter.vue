@@ -103,8 +103,8 @@ export default {
             })
         },
         getIframeCode(url, id) {
-            return `<span id="${id}"><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw">2019年4月15日</a></blockquote></span>
-            <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw">2019年4月15日</a></blockquote>`
+            return `<span id="${id}"><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw"></a></blockquote></span>
+            <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw"></a></blockquote>`
         }
     }
 }
