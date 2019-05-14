@@ -74,7 +74,7 @@ export default {
             this.editorRef.focus()
             this.editor.selectElement(this.insert.focusLine)
             this.editor.pasteHTML(
-                `<div class="twitter--container"><div class="twitter--content">${html}</div></div><br>`,
+                `<div class="twitter--container"><div class="twitter--content">${html}</div></div>`,
                 { cleanAttrs: [], cleanTags: [], unwrapTags: []})
 
             this.embedElm = this.editor.getSelectedParentElement()
@@ -91,6 +91,10 @@ export default {
             const currentPos = focused.getBoundingClientRect()
             window.scrollTo(0, currentPos.top - currentPos.x);
             this.$emit('onChange')
+
+            this.editor.pasteHTML(
+                `<br>`,
+                { cleanAttrs: [], cleanTags: [], unwrapTags: []})
             
             sleep(1000).then(() => {
                 this.editor.pasteHTML('<span></span>', { cleanAttrs: [], cleanTags: [], unwrapTags: []})
