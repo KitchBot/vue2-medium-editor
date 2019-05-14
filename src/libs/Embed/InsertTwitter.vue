@@ -74,8 +74,7 @@ export default {
             this.editorRef.focus()
             this.editor.selectElement(this.insert.focusLine)
             this.editor.pasteHTML(
-                `<div class="twitter--container"><div class="twitter--content">${html}</div></div>
-                <br/>`,
+                `<div class="twitter--container"><div class="twitter--content">${html}</div></div><br>`,
                 { cleanAttrs: [], cleanTags: [], unwrapTags: []})
 
             this.embedElm = this.editor.getSelectedParentElement()
