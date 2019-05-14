@@ -74,7 +74,8 @@ export default {
             this.editorRef.focus()
             this.editor.selectElement(this.insert.focusLine)
             this.editor.pasteHTML(
-                '<div class="twitter--container"><div class="twitter--content">' + html + '</div></div><br>',
+                `<div class="twitter--container"><div class="twitter--content">${html}</div></div>
+                <br/>`,
                 { cleanAttrs: [], cleanTags: [], unwrapTags: []})
 
             this.embedElm = this.editor.getSelectedParentElement()
@@ -85,9 +86,7 @@ export default {
                 script.async = true;
                 this.embedElm.appendChild(script);
             } else {
-                window.twttr.widgets.load(
-                    document.getElementById(id)
-                )
+                window.twttr.widgets.load()
             }
             const focused = this.editor.getSelectedParentElement()
             const currentPos = focused.getBoundingClientRect()
