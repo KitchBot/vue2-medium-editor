@@ -62,13 +62,14 @@ export default {
             this.url = '';
         },
         getIframe() {
+            const randomId = Math.random().toString()
             if (validUrl.isUri(this.url)) {
-                this.addIframe(this.getIframeCode(this.url))
+                this.addIframe(this.getIframeCode(this.url, randomId))
             } else {
-                this.addIframe(this.url);
+                this.addIframe(this.url, randomId);
             }
         },
-        addIframe(html) {
+        addIframe(html, id) {
             // const handlerVm = this
             this.editorRef.focus()
             this.editor.selectElement(this.insert.focusLine)
@@ -84,7 +85,9 @@ export default {
                 script.async = true;
                 this.embedElm.appendChild(script);
             } else {
-                window.twttr.widgets.load()
+                window.twttr.widgets.load(
+                    document.getElementById(id)
+                )
             }
             const focused = this.editor.getSelectedParentElement()
             const currentPos = focused.getBoundingClientRect()
@@ -99,8 +102,9 @@ export default {
                 })
             })
         },
-        getIframeCode(url) {
-            return `<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw">2019年4月15日</a></blockquote>`
+        getIframeCode(url, id) {
+            return `<blockquote class="twitter-tweet" data-lang="ja" id="${id}"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw">2019年4月15日</a></blockquote>
+            <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw">2019年4月15日</a></blockquote>`
         }
     }
 }
