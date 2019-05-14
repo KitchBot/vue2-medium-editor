@@ -103,7 +103,7 @@ export default {
             })
         },
         getIframeCode(url, id) {
-            return `<span id="${id}"><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw"></a></blockquote></span>
+            return `<div id="${id}"><blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw"></a></blockquote></div>
             <blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr"><a href=“${url}?ref_src=twsrc%5Etfw"></a></blockquote>`
         }
     }
